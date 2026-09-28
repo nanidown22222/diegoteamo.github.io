@@ -1,5 +1,5 @@
 /* =========================================
-   PÁGINA DE AMOR - TEMA CARS / RAYO MCQUEEN
+   TEAmo autista de mi corazón
    ========================================= */
 
 * {
@@ -7,7 +7,7 @@
 }
 
 body {
-    /* Cambia 'fondo-cars.jpg' por el nombre de TU imagen */
+   
     background-image: url('diego.jpg');
     background-size: cover;
     background-position: center;
@@ -23,13 +23,13 @@ body {
     animation: fondo-enfoque 15s ease-in-out infinite alternate;
 }
 
-/* Ligero zoom animado al fondo para darle vida */
+
 @keyframes fondo-enfoque {
     from { background-size: 100%; }
     to   { background-size: 115%; }
 }
 
-/* Canvas de corazones sobre el fondo */
+
 #corazones {
     position: fixed;
     inset: 0;
@@ -37,7 +37,7 @@ body {
     pointer-events: none;
 }
 
-/* ---------- Tarjeta principal ---------- */
+
 .container {
     position: relative;
     z-index: 1;
@@ -58,7 +58,7 @@ body {
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ---------- Cinta superior ---------- */
+
 .cinta-superior {
     background: #ffde00;
     color: #e10600;
@@ -77,7 +77,7 @@ body {
     50%      { opacity: 0.6; }
 }
 
-/* ---------- Título y frase ---------- */
+
 .titulo {
     font-size: 2.4rem;
     text-shadow: 3px 3px #000;
@@ -93,7 +93,7 @@ body {
     transition: opacity 0.4s ease;
 }
 
-/* ---------- Contador ---------- */
+
 .contador-box {
     background: rgba(0, 0, 0, 0.35);
     border-radius: 12px;
@@ -136,7 +136,7 @@ body {
     opacity: 0.85;
 }
 
-/* Frase de los 365 días del año */
+
 .frase-anual {
     font-family: 'Lobster', cursive;
     font-size: 1.05rem;
@@ -145,7 +145,7 @@ body {
     text-shadow: 1px 1px rgba(0, 0, 0, 0.6);
 }
 
-/* ---------- Botones ---------- */
+
 .botones {
     display: flex;
     gap: 10px;
@@ -192,7 +192,7 @@ button:active {
     opacity: 1;
 }
 
-/* ---------- Corazón latiendo ---------- */
+
 .heart {
     font-size: 2.5rem;
     margin: 10px 0;
@@ -208,7 +208,7 @@ button:active {
     100% { transform: scale(1); }
 }
 
-/* ---------- Velocímetro ---------- */
+
 .velocimetro {
     background: rgba(0, 0, 0, 0.4);
     border-radius: 12px;
@@ -243,14 +243,14 @@ button:active {
     transition: width 0.3s ease;
 }
 
-/* ---------- Botón de la carta ---------- */
+
 .boton-carta {
     margin-top: 12px;
     background: #fff;
     color: #e10600;
 }
 
-/* ---------- Descarga del fondo ---------- */
+
 .descarga-fondo {
     display: inline-block;
     margin-top: 12px;
@@ -269,7 +269,7 @@ button:active {
     background: rgba(0, 0, 0, 0.55);
 }
 
-/* ---------- Firma ---------- */
+
 .firma {
     margin-top: 16px;
     font-size: 0.8rem;
@@ -277,7 +277,7 @@ button:active {
     opacity: 0.85;
 }
 
-/* ---------- Corazones flotantes (por clics) ---------- */
+
 .corazon-flotante {
     position: fixed;
     bottom: -50px;
@@ -292,7 +292,7 @@ button:active {
     100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
 }
 
-/* ---------- CARTA DE AMOR ---------- */
+
 .carta-overlay {
     position: fixed;
     inset: 0;
@@ -396,14 +396,14 @@ button:active {
     color: #000;
 }
 
-/* ---------- Responsivo ---------- */
+
 @media (max-width: 480px) {
     .titulo        { font-size: 1.9rem; }
     .frase         { font-size: 1.2rem; }
     .contador span { font-size: 1.2rem; }
     .carta-cuerpo  { font-size: 1.15rem; }
 }
-/* ---------- ÁLBUM DE AMOR ---------- */
+
 .album-box {
     margin-top: 20px;
     background: rgba(0, 0, 0, 0.35);
@@ -517,7 +517,7 @@ button:active {
     margin: 8px 0 0 0;
 }
 
-/* ---------- Visor ampliado de fotos ---------- */
+
 .foto-overlay {
     position: fixed;
     inset: 0;
@@ -574,7 +574,7 @@ button:active {
     margin-top: 14px;
 }
 
-/* ---------- Responsivo ---------- */
+
 @media (max-width: 480px) {
     .titulo        { font-size: 1.9rem; }
     .frase         { font-size: 1.2rem; }
