@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, mi Rayo McQueen ⚡</title>
+
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Lobster&family=Caveat:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="teamo.css">
+</head>
+<body>
+
+    <!-- Fondo animado con corazones flotantes -->
+    <canvas id="corazones"></canvas>
+
+    <div class="container">
+        <div class="cinta-superior">🏁 KACHOW 🏁</div>
+
+        <h1 class="titulo">Para el amor<br>de mi vida</h1>
+
+        <p class="frase" id="frase-romantica">
+            "Eres mi rayo de luz en la vida, mi número 95"
+        </p>
+
+        <!-- Contador: arranca desde la primera visita y suma los 365 días del año -->
+        <div class="contador-box">
+            <p class="contador-titulo">⏱️ Llevamos así, a fondo:</p>
+            <div class="contador" id="contador">
+                <div><span id="dias">0</span><small>días</small></div>
+                <div><span id="horas">0</span><small>horas</small></div>
+                <div><span id="minutos">0</span><small>min</small></div>
+                <div><span id="segundos">0</span><small>seg</small></div>
+            </div>
+            <p class="frase-anual" id="frase-anual">
+                Te amo durante los <strong id="dias-restantes">365</strong> días que faltan del año, y los 365 días de todos los años juntos❤️
+            </p>
+            <button id="boton-reinicio" class="boton-reinicio">⟳ Reiniciar tiempo de ingreso a la página</button>
+        </div>
+
+        <div class="botones">
+            <button id="boton-fAmor">・✿ Te amo, toca acá</button>
+            <button id="boton-musica">🎵 Es para ti esta canción</button>
+            <button id="boton-corazon">❤️ Dale corazón</button>
+        </div>
+
+        <p class="mensaje-secreto" id="mensaje-secreto"></p>
+
+        <div class="heart">❤️</div>
+
+        <div class="velocimetro">
+            <div class="velocimetro-texto">
+                VELOCIDAD DEL AMOR: <span id="velocidad">0</span> KM/H
+            </div>
+            <div class="barra">
+                <div class="barra-relleno" id="barra-relleno"></div>
+            </div>
+        </div>
+
+        <!-- Botón de la carta de amor -->
+        <button id="boton-carta" class="boton-carta">💌 Abre mi carta</button>
+
+        <footer class="firma">— Hecho con amor, al estilo Rayo McQueen 🏎️</footer>
+    </div>
+    <!-- ============ ÁLBUM DE AMOR ============ -->
+        <div class="album-box">
+            <p class="album-titulo">📸 Nuestro álbum de vueltas juntos</p>
+
+            <div class="album-subir">
+                <input type="file" id="input-fotos" accept="image/*" multiple hidden>
+                <button id="boton-subir">➕ Añadir foto</button>
+                <input type="text" id="pie-foto" class="pie-foto" maxlength="60"
+                       placeholder="Pie de foto: ej. nuestra primera carrera 🏁">
+            </div>
+
+            <div class="album-grid" id="album-grid">
+                <!-- Las fotos se agregan aquí automáticamente -->
+            </div>
+
+            <p class="album-vacio" id="album-vacio">
+                Todavía no hay fotos... ¡sube la primera! ❤️
+            </p>
+        </div>
+
+    <!-- ============ CARTA DE AMOR (ventana modal) ============ -->
+    <div class="carta-overlay" id="carta-overlay">
+        <div class="carta" id="carta">
+            <button class="carta-cerrar" id="carta-cerrar">✖</button>
+            <div class="carta-sello">🏎️</div>
+            <h2 class="carta-titulo">Para ti, mi persona favorita, te amo</h2>
+            <div class="carta-cuerpo">
+                <p>Amor mío,</p>
+                <p>
+                 Déjame decirte lo mucho que te amo en esta cartita, me gustas, no tienes idea cuánto.
+                 Eres una persona tan linda, eres el mejor.
+                 Tú, solo tú Diego, tienes la voluntad de hacerme sentir todo esto. Jamás te haré daño 
+                 Mi amor por ti es lo más sincero, gracias Diego, eres la luz de mi vida
+                </p>
+                <p>
+                    I love you- Avril lavigne, búscala. Es la canción de fondo 
+                    Tú eres mi McQueen, te amo Diego. Eres lo mejor de la vida
+                    No hay curva, derrape ni desgaste que no valga la pena
+                    si corro de la mano de ti.
+                </p>
+                <p>
+                    Prometo amarte los 365 días del año, y constantemente por los años,
+                    Te amo Diego˗ˏˋ ♡ ˎˊ˗.
+                </p>
+                <p class="carta-firma">Con todo mi amor y una parte de mi corazón,<br><span>Ka-chow amor mío⚡❤️</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio opcional: coloca un archivo "musica.mp3" en la carpeta -->
+    <audio id="musica" loop src="te-amo-diego.ogg"></audio>
+
+    <script src="miamor.js"></script>
+</body>
+</html>

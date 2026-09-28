@@ -1,0 +1,583 @@
+/* =========================================
+   PÁGINA DE AMOR - TEMA CARS / RAYO MCQUEEN
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* Cambia 'fondo-cars.jpg' por el nombre de TU imagen */
+    background-image: url('diego.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Racing Sans One', sans-serif;
+    overflow-x: hidden;
+    animation: fondo-enfoque 15s ease-in-out infinite alternate;
+}
+
+/* Ligero zoom animado al fondo para darle vida */
+@keyframes fondo-enfoque {
+    from { background-size: 100%; }
+    to   { background-size: 115%; }
+}
+
+/* Canvas de corazones sobre el fondo */
+#corazones {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ---------- Tarjeta principal ---------- */
+.container {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(145deg, rgba(225, 6, 0, 0.88), rgba(140, 2, 0, 0.88));
+    padding: 35px 30px;
+    border-radius: 20px;
+    border: 4px solid #ffde00;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(0, 0, 0, 0.3);
+    max-width: 480px;
+    width: 100%;
+    animation: entrada 1s ease-out;
+}
+
+@keyframes entrada {
+    from { opacity: 0; transform: translateY(40px) scale(0.9); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- Cinta superior ---------- */
+.cinta-superior {
+    background: #ffde00;
+    color: #e10600;
+    font-weight: bold;
+    letter-spacing: 3px;
+    padding: 6px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    text-shadow: none;
+    animation: parpadeo 2s infinite;
+}
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.6; }
+}
+
+/* ---------- Título y frase ---------- */
+.titulo {
+    font-size: 2.4rem;
+    text-shadow: 3px 3px #000;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+}
+
+.frase {
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+    margin: 0 0 20px 0;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.6);
+    transition: opacity 0.4s ease;
+}
+
+/* ---------- Contador ---------- */
+.contador-box {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.contador-titulo {
+    font-size: 0.95rem;
+    margin: 0 0 10px 0;
+    color: #ffde00;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contador div {
+    display: flex;
+    flex-direction: column;
+    min-width: 60px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #ffde00;
+    border-radius: 10px;
+    padding: 6px 4px;
+}
+
+.contador span {
+    font-size: 1.5rem;
+    color: #ffde00;
+    text-shadow: 2px 2px #000;
+}
+
+.contador small {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    opacity: 0.85;
+}
+
+/* Frase de los 365 días del año */
+.frase-anual {
+    font-family: 'Lobster', cursive;
+    font-size: 1.05rem;
+    color: #ffde00;
+    margin: 10px 0 0 0;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Botones ---------- */
+.botones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+button {
+    background-color: #ffde00;
+    border: none;
+    padding: 10px 18px;
+    font-family: 'Racing Sans One', sans-serif;
+    font-size: 0.95rem;
+    color: #000;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 0 #b39b00;
+}
+
+button:hover {
+    transform: scale(1.1) translateY(-2px);
+    background-color: white;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* ---------- Mensaje secreto ---------- */
+.mensaje-secreto {
+    font-family: 'Lobster', cursive;
+    font-size: 1.2rem;
+    color: #ffde00;
+    min-height: 30px;
+    margin: 8px 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.mensaje-secreto.visible {
+    opacity: 1;
+}
+
+/* ---------- Corazón latiendo ---------- */
+.heart {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    cursor: pointer;
+    animation: latido 1s infinite;
+    transition: transform 0.1s;
+    user-select: none;
+}
+
+@keyframes latido {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* ---------- Velocímetro ---------- */
+.velocimetro {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.velocimetro-texto {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.velocimetro-texto span {
+    color: #ffde00;
+    font-size: 1.1rem;
+}
+
+.barra {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.barra-relleno {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ffde00, #ff8c00, #ff2200);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* ---------- Botón de la carta ---------- */
+.boton-carta {
+    margin-top: 12px;
+    background: #fff;
+    color: #e10600;
+}
+
+/* ---------- Descarga del fondo ---------- */
+.descarga-fondo {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 2px solid #ffde00;
+    border-radius: 8px;
+    color: #ffde00;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.descarga-fondo:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Firma ---------- */
+.firma {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    font-family: 'Lobster', cursive;
+    opacity: 0.85;
+}
+
+/* ---------- Corazones flotantes (por clics) ---------- */
+.corazon-flotante {
+    position: fixed;
+    bottom: -50px;
+    font-size: 1.8rem;
+    z-index: 2;
+    pointer-events: none;
+    animation: flotar 4s linear forwards;
+}
+
+@keyframes flotar {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ---------- CARTA DE AMOR ---------- */
+.carta-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 20px;
+}
+
+.carta-overlay.abierta {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carta {
+    position: relative;
+    background: linear-gradient(160deg, #fff8e7, #ffe9d6);
+    color: #5a2a00;
+    max-width: 520px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 14px;
+    border: 6px double #e10600;
+    padding: 34px 30px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    transform: scale(0.6) rotate(-6deg);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.carta-overlay.abierta .carta {
+    transform: scale(1) rotate(0deg);
+}
+
+.carta-sello {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #e10600;
+    border: 3px solid #ffde00;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.carta-titulo {
+    font-family: 'Lobster', cursive;
+    color: #e10600;
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 8px 0 16px 0;
+}
+
+.carta-cuerpo {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    line-height: 1.5;
+}
+
+.carta-cuerpo p {
+    margin: 0 0 12px 0;
+}
+
+.carta-firma {
+    text-align: right;
+    font-weight: bold;
+}
+
+.carta-firma span {
+    color: #e10600;
+}
+
+.carta-cerrar {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: #e10600;
+    color: #fff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    box-shadow: none;
+    padding: 0;
+}
+
+.carta-cerrar:hover {
+    background: #ffde00;
+    color: #000;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 480px) {
+    .titulo        { font-size: 1.9rem; }
+    .frase         { font-size: 1.2rem; }
+    .contador span { font-size: 1.2rem; }
+    .carta-cuerpo  { font-size: 1.15rem; }
+}
+/* ---------- ÁLBUM DE AMOR ---------- */
+.album-box {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.album-titulo {
+    font-size: 1rem;
+    color: #ffde00;
+    margin: 0 0 12px 0;
+}
+
+.album-subir {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pie-foto {
+    flex: 1;
+    min-width: 150px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 2px solid #ffde00;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: #5a2a00;
+    outline: none;
+}
+
+.pie-foto:focus {
+    background: #fff;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+}
+
+.album-foto {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid #ffde00;
+    cursor: pointer;
+    aspect-ratio: 1;
+    animation: foto-entra 0.4s ease;
+}
+
+@keyframes foto-entra {
+    from { opacity: 0; transform: scale(0.7) rotate(-5deg); }
+    to   { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.album-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.album-foto:hover img {
+    transform: scale(1.15);
+}
+
+.album-foto .pie {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: #ffde00;
+    font-family: 'Caveat', cursive;
+    font-size: 0.8rem;
+    padding: 3px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-foto .borrar-foto {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: #e10600;
+    color: #fff;
+    border: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: none;
+}
+
+.album-foto:hover .borrar-foto {
+    opacity: 1;
+}
+
+.album-vacio {
+    font-family: 'Lobster', cursive;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 8px 0 0 0;
+}
+
+/* ---------- Visor ampliado de fotos ---------- */
+.foto-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.foto-overlay.abierta {
+    opacity: 1;
+    visibility: visible;
+}
+
+.foto-overlay img {
+    max-width: 90vw;
+    max-height: 75vh;
+    border-radius: 12px;
+    border: 5px solid #ffde00;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+.foto-overlay .pie-grande {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: #ffde00;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.foto-overlay .cerrar-foto {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e10600;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1rem;
+    padding: 0;
+    box-shadow: none;
+}
+
+.foto-navegar {
+    display: flex;
+    gap: 40px;
+    margin-top: 14px;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 480px) {
+    .titulo        { font-size: 1.9rem; }
+    .frase         { font-size: 1.2rem; }
+    .contador span { font-size: 1.2rem; }
+    .carta-cuerpo  { font-size: 1.15rem; }
+}
