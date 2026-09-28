@@ -1,11 +1,10 @@
 /* =========================================
-   LÓGICA INTERACTIVA - TEMA CARS
+   TEAmo por ti programaría más
    =========================================
    Solamente inicia el contador desde que arranca la página, tienes el derecho a reiniciarlo 
    no hay una fecha específica de lo nuestro, cuando haya una la pondré mi amor
    ========================================= */
 
-// ---------- CONFIGURACIÓN ----------
 const CLAVE = 'inicio_mi_amor';
 
 function obtenerInicio() {
@@ -19,7 +18,7 @@ function obtenerInicio() {
 
 const INICIO = obtenerInicio();
 
-// Frases para mi rayomcqueen
+// Frases para mi rayomcqueen mi diego
 const FRASES = [
     "“Ka-chow! Eres lo mejor que me ha pasado”",
     "“McQueen ganó desde que conoció a sally, y yo gané desde que te conocí a ti”",
@@ -72,7 +71,6 @@ function actualizarDiasDelAno() {
             'Último día del año y te amé cada segundo de los 365 ❤️';
     }
 }
-// ---------- BOTÓN: REINICIAR TIEMPO ----------
 document.getElementById('boton-reinicio').addEventListener('click', () => {
     const confirmar = confirm(
         "¿Seguro que quieres reiniciar el contador del amor? 🏎️\n" +
@@ -80,11 +78,11 @@ document.getElementById('boton-reinicio').addEventListener('click', () => {
     );
 
     if (confirmar) {
-        // Borrar la fecha guardada y arrancar desde ahora
+        
         localStorage.removeItem(CLAVE);
         localStorage.setItem(CLAVE, Date.now());
 
-        // Actualizar la variable de inicio sin recargar la página
+        
        let INICIO = obtenerInicio();
 
         actualizarContador();
@@ -98,7 +96,7 @@ actualizarContador();
 actualizarDiasDelAno();
 setInterval(actualizarDiasDelAno, 60000);
 
-// ---------- FRASE ROMÁNTICA ROTATIVA ----------
+
 const fraseEl = document.getElementById('frase-romantica');
 let indiceFrase = 0;
 
@@ -112,13 +110,13 @@ function cambiarFrase() {
 }
 setInterval(cambiarFrase, 8000);
 
-// ---------- BOTÓN: SORPRÉNDEME ----------
+
 document.getElementById('boton-fAmor').addEventListener('click', () => {
     cambiarFrase();
     lanzarCorazones(6);
 });
 
-// ---------- BOTÓN: MÚSICA ----------
+
 const musica = document.getElementById('musica');
 document.getElementById('boton-musica').addEventListener('click', function () {
     if (musica.paused) {
@@ -132,20 +130,20 @@ document.getElementById('boton-musica').addEventListener('click', function () {
     }
 });
 
-// ---------- BOTÓN: DALE CORAZÓN ----------
+
 document.getElementById('boton-corazon').addEventListener('click', () => {
     const msg = MENSAJES_CORAZON[Math.floor(Math.random() * MENSAJES_CORAZON.length)];
     mostrarMensaje(msg);
     lanzarCorazones(12);
 });
 
-// El corazón también responde al clic
+// El corazón también responde al clic, el mío responde con nuestro click
 document.querySelector('.heart').addEventListener('click', () => {
     mostrarMensaje("¡Mi corazón es solo para ti! ❤️");
     lanzarCorazones(8);
 });
 
-// ---------- MENSAJE SECRETO ----------
+
 let timerMensaje = null;
 function mostrarMensaje(texto) {
     const el = document.getElementById('mensaje-secreto');
@@ -155,7 +153,7 @@ function mostrarMensaje(texto) {
     timerMensaje = setTimeout(() => el.classList.remove('visible'), 4000);
 }
 
-// ---------- CORAZONES FLOTANTES (por clics) ----------
+
 function lanzarCorazones(cantidad) {
     const iconos = ['❤️', '💛', '⚡', '🏎️', '🏆', '💖'];
     for (let i = 0; i < cantidad; i++) {
@@ -172,7 +170,7 @@ function lanzarCorazones(cantidad) {
     }
 }
 
-// ---------- VELOCÍMETRO DEL AMOR ----------
+
 const barra = document.getElementById('barra-relleno');
 const velocidadEl = document.getElementById('velocidad');
 let direccion = 1, velocidad = 20;
@@ -185,7 +183,7 @@ setInterval(() => {
     velocidadEl.textContent = velocidad * 9; // hasta 810 km/h, jeje
 }, 150);
 
-// ---------- CARTA DE AMOR ----------
+
 const overlay = document.getElementById('carta-overlay');
 const botonCarta = document.getElementById('boton-carta');
 const botonCerrar = document.getElementById('carta-cerrar');
@@ -197,17 +195,17 @@ botonCarta.addEventListener('click', () => {
 
 botonCerrar.addEventListener('click', () => overlay.classList.remove('abierta'));
 
-// Cerrar haciendo clic fuera de la carta
+
 overlay.addEventListener('click', (e) => {
     if (e.target === overlay) overlay.classList.remove('abierta');
 });
 
-// Cerrar con la tecla Escape
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') overlay.classList.remove('abierta');
 });
 
-// ---------- CORAZONES EN EL FONDO (canvas) ----------
+
 const canvas = document.getElementById('corazones');
 const ctx = canvas.getContext('2d');
 let corazones = [];
@@ -222,7 +220,7 @@ function redimensionar() {
 window.addEventListener('resize', redimensionar);
 redimensionar();
 
-// Dibuja un corazón en la posición (x, y) con el tamaño indicado
+
 function dibujarCorazon(x, y, size, color, opacidad) {
     ctx.save();
     ctx.translate(x, y);
@@ -276,14 +274,14 @@ function animarCorazones() {
 }
 animarCorazones();
 
-// ---------- MENSAJE DE BIENVENIDA ----------
+
 window.addEventListener('load', () => {
     setTimeout(() => mostrarMensaje("⚡ ¡Ka-chow! Esto es solo para ti, por ti, te amo ⚡"), 1200);
 });
-// ---------- ÁLBUM DE AMOR ----------
-// Las fotos se guardan en el navegador (localStorage) para que persistan
+
+
 const CLAVE_FOTOS = 'album_mi_amor';
-const MAX_FOTOS = 24; // límite por espacio de almacenamiento del navegador
+const MAX_FOTOS = 24; 
 
 let fotos = JSON.parse(localStorage.getItem(CLAVE_FOTOS) || '[]');
 
@@ -378,7 +376,7 @@ inputFotos.addEventListener('change', () => {
     });
 });
 
-// ---------- VISOR AMPLIADO ----------
+
 const fotoOverlay  = document.getElementById('foto-overlay');
 const fotoGrande   = document.getElementById('foto-grande');
 const pieGrande    = document.getElementById('pie-grande');
@@ -422,5 +420,5 @@ function anteriorFoto() {
 document.getElementById('foto-siguiente').addEventListener('click', siguienteFoto);
 document.getElementById('foto-anterior').addEventListener('click', anteriorFoto);
 
-// Renderizar el álbum al cargar la página
+
 renderizarAlbum();
